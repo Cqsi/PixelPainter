@@ -4,21 +4,24 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.awt.event.MouseMotionListener;
 
-public class Panel extends JPanel implements MouseListener {
+public class Panel extends JPanel implements MouseListener, MouseMotionListener {
 
     private int width, height;
-    private final int lineSpacing = 20;
+    private int lineSpacing;
 
     private Color color;
 
-    public Panel(int width, int height){
+    public Panel(int width, int height, int lineSpacing){
         this.width = width;
         this.height = height;
+        this.lineSpacing = lineSpacing;
 
         color = JColorChooser.showDialog(null, "Enter the color!", Color.BLACK);
 
         addMouseListener(this);
+        addMouseMotionListener(this);
     }
 
     @Override
@@ -36,6 +39,8 @@ public class Panel extends JPanel implements MouseListener {
         }
     }
 
+
+    // MouseEvents
 
     @Override
     public void mouseClicked(MouseEvent e) {}
@@ -55,4 +60,16 @@ public class Panel extends JPanel implements MouseListener {
 
     @Override
     public void mouseExited(MouseEvent e) {}
+
+    @Override
+    public void mouseDragged(MouseEvent e) {
+        Graphics g = getGraphics();
+        g.setColor(color);
+        g.fillRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+    }
+
+    @Override
+    public void mouseMoved(MouseEvent e) {
+
+    }
 }

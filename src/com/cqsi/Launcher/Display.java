@@ -8,13 +8,14 @@ import java.awt.*;
 public class Display extends JFrame {
 
     private JFrame frame;
-    private int width, height;
+    private int width, height, lineSpacing;
     private String title;
 
-    public Display(String title, int width, int height){
+    public Display(String title, int width, int height, int lineSpacing){
         this.title = title;
         this.width = width;
         this.height = height;
+        this.lineSpacing = lineSpacing;
 
         createDisplay();
     }
@@ -22,7 +23,7 @@ public class Display extends JFrame {
     private void createDisplay(){
 
         frame = new JFrame(title);
-        frame.add(new Panel(width, height), BorderLayout.CENTER);
+        frame.add(new Panel(width, height, lineSpacing), BorderLayout.CENTER);
 
         frame.setSize(width, height);
         frame.setResizable(false);
