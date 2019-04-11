@@ -13,6 +13,8 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
     private static Color color;
 
+    private static boolean isRubber = false;
+
     public Panel(int width, int height, int lineSpacing){
         this.width = width;
         this.height = height;
@@ -46,8 +48,15 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
     @Override
     public void mousePressed(MouseEvent e) {
         Graphics g = getGraphics();
-        g.setColor(color);
-        g.fillRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        if(!isRubber){
+            g.setColor(color);
+            g.fillRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        }else{
+            g.clearRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+
+            g.setColor(Color.GRAY.brighter());
+            g.drawRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        }
     }
 
     @Override
@@ -62,8 +71,15 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
     @Override
     public void mouseDragged(MouseEvent e) {
         Graphics g = getGraphics();
-        g.setColor(color);
-        g.fillRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        if(!isRubber){
+            g.setColor(color);
+            g.fillRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        }else{
+            g.clearRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+
+            g.setColor(Color.GRAY.brighter());
+            g.drawRect((e.getX()/lineSpacing)*lineSpacing, (e.getY()/lineSpacing)*lineSpacing, lineSpacing, lineSpacing);
+        }
     }
 
     @Override
@@ -73,5 +89,13 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
     public static void setColor(Color color) {
         Panel.color = color;
+    }
+
+    public static void setIsRubber(boolean isRubber){
+        Panel.isRubber = isRubber;
+    }
+
+    public static boolean isIsRubber() {
+        return isRubber;
     }
 }

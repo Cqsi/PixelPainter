@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 
 public class BottomPanel extends JPanel implements ActionListener{
 
-    private JButton palette, rubber;
+    private JButton palette, rubber, pen;
 
     public BottomPanel(){
 
@@ -15,10 +15,11 @@ public class BottomPanel extends JPanel implements ActionListener{
 
         palette = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\palette.png");
         rubber = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\rubber.jpg");
+        pen = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\pen.jpg");
 
         box.add(palette);
         box.add(rubber);
-
+        box.add(pen);
         this.add(box);
 
     }
@@ -28,6 +29,16 @@ public class BottomPanel extends JPanel implements ActionListener{
         if(e.getSource() == palette){
             Panel.setColor(JColorChooser.showDialog(null, "Choose a color", Color.BLACK));
         }else if(e.getSource() == rubber){
+
+            if(!Panel.isIsRubber()){
+                Panel.setIsRubber(true);
+            }
+
+        }else if(e.getSource() == pen){
+
+            if(Panel.isIsRubber()){
+                Panel.setIsRubber(false);
+            }
 
         }
     }
