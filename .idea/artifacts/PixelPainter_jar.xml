@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="jar" name="PixelPainter:jar">
+    <output-path>$PROJECT_DIR$/out/artifacts/PixelPainter_jar</output-path>
+    <root id="archive" name="PixelPainter.jar">
+      <element id="module-output" name="PixelPainter" />
+    </root>
+  </artifact>
+</component>
