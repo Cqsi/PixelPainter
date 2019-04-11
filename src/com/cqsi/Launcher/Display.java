@@ -26,7 +26,7 @@ public class Display extends JFrame {
         frame = new JFrame(title);
 
         frame.add(new Panel(width, height, lineSpacing), BorderLayout.CENTER);
-        frame.add(new BottomPanel(), BorderLayout.SOUTH);
+        frame.add(new BottomPanel(width, height, lineSpacing), BorderLayout.SOUTH);
 
         frame.setSize(width, height);
         frame.setResizable(false);

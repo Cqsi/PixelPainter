@@ -8,8 +8,11 @@ import java.awt.event.ActionListener;
 public class BottomPanel extends JPanel implements ActionListener{
 
     private JButton palette, rubber, pen;
+    private Panel panel;
 
-    public BottomPanel(){
+    public BottomPanel(int width, int height, int lineSpacing){
+
+        panel = new Panel(width, height, lineSpacing);
 
         Box box = Box.createHorizontalBox();
 
@@ -20,24 +23,27 @@ public class BottomPanel extends JPanel implements ActionListener{
         box.add(palette);
         box.add(rubber);
         box.add(pen);
-        this.add(box);
+
+        add(box);
         setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
         if(e.getSource() == palette){
-            Panel.setColor(JColorChooser.showDialog(null, "Choose a color", Color.BLACK));
+
+            panel.setColor(JColorChooser.showDialog(null, "Choose a color", Color.BLACK));
+
         }else if(e.getSource() == rubber){
 
-            if(!Panel.isIsRubber()){
-                Panel.setIsRubber(true);
+            if(!panel.isIsRubber()){
+                panel.setIsRubber(true);
             }
 
         }else if(e.getSource() == pen){
 
-            if(Panel.isIsRubber()){
-                Panel.setIsRubber(false);
+            if(panel.isIsRubber()){
+                panel.setIsRubber(false);
             }
 
         }

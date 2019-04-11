@@ -26,6 +26,7 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
     @Override
     public void paintComponent(Graphics g){
+
         g.setColor(Color.GRAY.brighter());
 
         // X
@@ -87,15 +88,15 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
 
     }
 
-    public static void setColor(Color color) {
+    public void setColor(Color color) {
         Panel.color = color;
     }
 
-    public static void setIsRubber(boolean isRubber){
+    public void setIsRubber(boolean isRubber){
         Panel.isRubber = isRubber;
     }
 
-    public static boolean isIsRubber() {
+    public boolean isIsRubber() {
         return isRubber;
     }
 }
