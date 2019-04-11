@@ -14,14 +14,14 @@ public class BottomPanel extends JPanel implements ActionListener{
         Box box = Box.createHorizontalBox();
 
         palette = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\palette.png");
-        rubber = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\rubber.jpg");
+        rubber = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\rubber.png");
         pen = makeMeButtons("C:\\Users\\Capsimir\\Desktop\\PixelPainter\\res\\images\\pen.jpg");
 
         box.add(palette);
         box.add(rubber);
         box.add(pen);
         this.add(box);
-
+        setBorder(BorderFactory.createLineBorder(Color.BLACK));
     }
 
     @Override
