@@ -11,14 +11,12 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
     private int width, height;
     private int lineSpacing;
 
-    private Color color;
+    private static Color color;
 
     public Panel(int width, int height, int lineSpacing){
         this.width = width;
         this.height = height;
         this.lineSpacing = lineSpacing;
-
-        color = JColorChooser.showDialog(null, "Enter the color!", Color.BLACK);
 
         addMouseListener(this);
         addMouseMotionListener(this);
@@ -71,5 +69,9 @@ public class Panel extends JPanel implements MouseListener, MouseMotionListener 
     @Override
     public void mouseMoved(MouseEvent e) {
 
+    }
+
+    public static void setColor(Color color) {
+        Panel.color = color;
     }
 }

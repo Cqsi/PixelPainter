@@ -1,5 +1,6 @@
 package com.cqsi.Launcher;
 
+import com.cqsi.Components.BottomPanel;
 import com.cqsi.Components.Panel;
 
 import javax.swing.*;
@@ -23,7 +24,9 @@ public class Display extends JFrame {
     private void createDisplay(){
 
         frame = new JFrame(title);
+
         frame.add(new Panel(width, height, lineSpacing), BorderLayout.CENTER);
+        frame.add(new BottomPanel(), BorderLayout.SOUTH);
 
         frame.setSize(width, height);
         frame.setResizable(false);
